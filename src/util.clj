@@ -1,5 +1,8 @@
 (ns util)
 
+; Blatantly stolen from
+; http://stackoverflow.com/questions/5538033/how-to-add-fields-to-a-map-in-clojure
+
 (defn merge-missing-keys [
                            a-set
                            some-keys
