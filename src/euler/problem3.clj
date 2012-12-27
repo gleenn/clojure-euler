@@ -1,18 +1,16 @@
 (ns euler.problem3)
 
-(defn prime-factors-helper [x factors factor]
+(defn prime-factors-helper [factors factor x]
   (if (= factor x) (conj factors x)
     (if (> factor x) factors
       (if (= 0 (mod x factor))
-        (prime-factors-helper (/ x factor) (conj factors factor) factor)
-        (prime-factors-helper x factors (inc factor))))))
+        (prime-factors-helper (conj factors factor) factor (/ x factor))
+        (prime-factors-helper factors (inc factor) x)))))
 
-(defn prime-factors [x]
-  (prime-factors-helper x #{1} 2)
-  )
+(def prime-factors (partial prime-factors-helper #{1} 2))
 
 (defn largest-prime-factor [x]
   (apply max (prime-factors x))
   )
 
-(prn (largest-prime-factor 600851475143))
+(prn (largest-prime-factor 600851475143)) ; should equal 6857
