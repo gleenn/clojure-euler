@@ -1,15 +1,18 @@
 (ns euler.problem3)
 
-(defn prime-factors [x]
-  (doto #{}
-    (for [factor (range 2 (Math/sqrt x))]
+(defn prime-factors-helper [x factors factor]
+  (if (= factor x) (conj factors x)
+    (if (> factor x) factors
       (if (= 0 (mod x factor))
-        (merge factors factor)
-        )
-      )
-    )
+        (prime-factors-helper (/ x factor) (conj factors factor) factor)
+        (prime-factors-helper x factors (inc factor))))))
+
+(defn prime-factors [x]
+  (prime-factors-helper x #{1} 2)
   )
 
-(test )
+(defn largest-prime-factor [x]
+  (apply max (prime-factors x))
+  )
 
-(prime-factors 10)
+(prn (largest-prime-factor 600851475143))
