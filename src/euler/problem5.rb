@@ -10,4 +10,4 @@ until has_all_divisors?(i, 2..20)
 	i += 1
 end
 puts i
-puts "Elapsed time: #{Time.now - start} msecs"
+puts "Elapsed time: #{Time.now - start} msecs" # 105000 msecs
