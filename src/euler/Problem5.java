@@ -2,11 +2,14 @@ package euler;
 
 public class Problem5 {
   public static void main(String[] args) {
+    long start = System.currentTimeMillis();
     int i = 1;
     while(!hasAllDivisors(i, 2, 20)) {
       i++;
     }
-    System.out.println("Omg I found all the effing divisors in " + i);
+    long end = System.currentTimeMillis();
+    System.out.println(i);
+    System.out.println("Elapsed time " + (end - start));
   }
 
   public static boolean hasAllDivisors(int num, int startDivisor, int stopDivisor) {
