@@ -1,0 +1,32 @@
+2013 Pizza Problem A
+30 points
+
+Given a, b, c:
+
+let x[0] = a
+let y[0] = b
+
+let x[n+1] = (x[n] * 1337) % 31337
+let y[n+1] = (y[n] * 1337) % 31337
+
+a, and b will be between 1 and 10000, inclusive. c will be between 100 and 10000, inclusive.
+Find the 100th closest point to (12345, 6789) out of the points (x[i], y[i]) with i between 0 and c, inclusive. (100th closest meaning the point such that 99 points are closer). If there is more then one such point, then Dave fucked up. Print the sum of the x and y coordinates for that point.
+First line has number of test cases, second line has a, b, c separated by single spaces.
+
+Thanks for testing! <3
+Example input
+
+5
+4814 3226 2273
+6089 9498 2009
+1338 7461 2694
+3474 4948 1232
+5631 9738 3233
+
+Example output
+
+Case #1: 23099
+Case #2: 20626
+Case #3: 23512
+Case #4: 12598
+Case #5: 14667
