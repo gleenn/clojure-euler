@@ -1,6 +1,6 @@
 (ns hackercup.problemA)
 
-(use '[clojure.string :only (split)])
+(use '[clojure.string :only (join split)])
 (use '[clojure.java.io :only (reader)])
 
 
@@ -10,7 +10,6 @@
       #(mod (* 1337 %) 31337)
       seed)))
 
-;(defn dist [^long x ^long y]
 (defn dist [^long x ^long y]
   (let [dx (Math/abs (- x 12345))
         dy (Math/abs (- y 6789))]
@@ -28,6 +27,7 @@
     (map (fn [line] (split line #"\s+"))
       (next (line-seq (reader "../../data/problemA/input.txt"))))))
 
-(time (doseq [result
-      (map-indexed (fn [i result] (str "Case #" (str (inc i)) ":" (str result))) do-problem)]
-  (println result)))
+(time (doseq
+        [result (map-indexed
+          (fn [i result] (str "Case #" (inc i) ":" result)) do-problem)]
+        (println result)))
