@@ -8,10 +8,16 @@
   (reduce * (map #(Long/parseLong %) (next (split segment #"")))))
 
 (defn greatest-substring-multiple [^long num-chars, ^String string]
-  (let [indexes (range (- (.length string) num-chars))
-        segments (map (fn [sub-index] (subs string sub-index (+ sub-index num-chars))) indexes)]
-    (apply max (map product-of-digits segments))))
-
+  (->> (range (+ (- (.length string) num-chars) 1))
+    (map
+      (fn [sub-index]
+        (subs
+          string
+          sub-index
+          (+ sub-index num-chars))))
+    (map
+      product-of-digits)
+    (apply max)))
 
 (def raw-data
   "73167176531330624919225119674426574742355349194934
@@ -37,6 +43,8 @@
 
 (def data (remove-whitespace raw-data))
 
+(assert (= (greatest-substring-multiple 1 "123") 3))
+(assert (= (greatest-substring-multiple 1 "123456789") 9))
 (assert (= (greatest-substring-multiple 1 "1234567890") 9))
 (assert (= (greatest-substring-multiple 2 "1234567890") 72))
 (assert (= (greatest-substring-multiple 3 "1234567890") 504))
