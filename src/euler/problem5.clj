@@ -28,3 +28,18 @@
 
 ;(time (prn (some #(has-all-divisors (range 2 20) %) (iterate inc 1)))) ; 232792560 ; 163188 msecs
 
+
+
+;(ns euler.problem5
+;  (:require clojure.test))
+;
+;(with-test
+;  (defn divides? [divisor number] (zero? (mod number divisor)))
+;
+;  (defn has-all-divisors [divisors num]
+;    (reduce (fn [other-divided divisor] (true? (and (divides? num divisor)))) true divisors))
+;
+;;(prn (take-while (fn [i] (< i 20)) (iterate inc 0)))
+;
+;  (is (has-all-divisors [2 3 6] 6))
+;)
