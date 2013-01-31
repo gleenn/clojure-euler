@@ -1,4 +1,4 @@
-(ns euler.problem10)
+(ns euler.problem10-slow)
 
 (defn divides? [^long number ^long divisor] (zero? (mod number divisor)))
 
