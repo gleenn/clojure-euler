@@ -1,4 +1,4 @@
-(ns euler.math)
+(ns gleenn.math)
 ;  (:require [clojure.strings :as strings])
 ;  (:use clojure.strings))
 
