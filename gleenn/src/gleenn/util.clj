@@ -24,4 +24,4 @@
                       (do (.close rdr) nil))))]
          (helper (clojure.java.io/reader file))))
 
-(count (lazy-file-lines "/tmp/massive-file.txt"))
+;(count (lazy-file-lines "/tmp/massive-file.txt"))

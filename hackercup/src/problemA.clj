@@ -25,9 +25,9 @@
 (def do-problem
   (map (fn [params] (apply solve params))
     (map (fn [line] (split line #"\s+"))
-      (next (line-seq (reader "../../data/problemA/input.txt"))))))
+      (next (line-seq (reader "data/problemA/input.txt"))))))
 
-(time (doseq
-        [result (map-indexed
-          (fn [i result] (str "Case #" (inc i) ":" result)) do-problem)]
-        (println result)))
+;(time (doseq
+;        [result (map-indexed
+;          (fn [i result] (str "Case #" (inc i) ":" result)) do-problem)]
+;        (println result)))

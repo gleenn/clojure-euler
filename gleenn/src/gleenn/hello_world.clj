@@ -4,7 +4,7 @@
 ;(in-ns 'hello_world)
 ;(use 'math)
 
-(prn (map math/square [1,2,3]))
+;(prn (map math/square [1,2,3]))
 
 ;(doall (prn "hi"))
 
